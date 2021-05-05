@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:e_commerce/Screens/Components/CategoriesHorizontalScroll.dart';
 import 'package:e_commerce/Screens/Components/ProductGrid.dart';
+import 'package:e_commerce/Screens/Cart.dart';
+
 
 class Homepage extends StatefulWidget {
   @override
@@ -23,7 +25,11 @@ class _HomepageState extends State<Homepage> {
               icon: Icon(
                 Icons.shopping_cart_rounded,
               ),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Cart()),
+                );
+              })
         ],
       ),
       drawer: Drawer(
@@ -50,7 +56,11 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Homepage()),
+                );
+              },
               child: ListTile(
                 leading: Icon(
                   Icons.home_filled,
@@ -70,13 +80,17 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Cart()),
+                );
+              },
               child: ListTile(
                 leading: Icon(
                   Icons.shopping_bag_rounded,
                   color: Color(0xff001427),
                 ),
-                title: Text("Orders"),
+                title: Text("Your cart"),
               ),
             ),
             InkWell(
@@ -89,27 +103,8 @@ class _HomepageState extends State<Homepage> {
                 title: Text("Saved"),
               ),
             ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                leading: Icon(
-                  Icons.local_offer,
-                  color: Color(0xff001427),
-                ),
-                title: Text("Offers"),
-              ),
-            ),
-            Divider(),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                leading: Icon(
-                  Icons.settings,
-                  color: Color(0xff001427),
-                ),
-                title: Text("Settings"),
-              ),
-            ),
+
+
           ],
         ),
       ),
